@@ -122,7 +122,7 @@ class FatalSlack(ProcessStateMonitor):
     def get_process_state_change_msg(self, headers, payload):
         pheaders, pdata = childutils.eventdata(payload + '\n')
         txt = ("[{0}] Process {groupname}:{processname} "
-               "failed to start too many times".format(self.hostname, **pheaders))
+               "{from_state}".format(self.hostname, **pheaders))
         return txt
 
     def send_batch_notification(self):
