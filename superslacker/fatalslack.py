@@ -52,7 +52,14 @@ from slacker import Slacker
 
 class FatalSlack(ProcessStateMonitor):
 
-    process_state_events = ['PROCESS_STATE_FATAL']
+    process_state_events = ['PROCESS_STATE_FATAL',
+                            'PROCESS_STATE_STOPPED',
+                            'PROCESS_STATE_STARTING',
+                            'PROCESS_STATE_RUNNING',
+                            'PROCESS_STATE_BACKOFF',
+                            'PROCESS_STATE_STOPPING',
+                            'PROCESS_STATE_EXITED',
+                            'PROCESS_STATE_UNKNOWN']
 
     @classmethod
     def _get_opt_parser(cls):
